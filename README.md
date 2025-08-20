@@ -4,6 +4,6 @@ including notes and practice
 
 notes -- in MLNotes
 
-practice -- go to C:\pycharm\Py_Projects\MLPractice (environment is already done there)
+practice -- in MLPractice
 
-use the notes here and the practice in the computer together
+use the notes and practice together
