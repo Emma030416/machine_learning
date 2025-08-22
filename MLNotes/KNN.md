@@ -39,7 +39,7 @@ KNN（K-Nearest Neighbors，K近邻)：
 ### 4.闵可夫斯基距离
 距离度量的统一表达式（闵氏距离）
 
-<img width="2096" height="277" alt="f4c5c84f57460bd9c1343892fd563554" src="https://github.com/user-attachments/assets/72a4938a-11e1-42e9-ba03-c85c4d7ef2a0" />
+![描述](./img/KNN01.png)
 
 p=1，曼哈顿距离<br>
 p=2，欧氏距离<br>
@@ -332,3 +332,4 @@ x = [[5.1, 3.5, 1.4, 0.2]]
 x = scaler.transform(x)
 print(estimator.predict(x))
 ```
+
