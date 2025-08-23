@@ -22,21 +22,21 @@ examples:<br>
 1. housing price prediction:<br>
 whether to fit a straight line, a curve or another function to the data
 ![描述](./img/wuenda02.png)
-**regression**: predict numbers / continuous valued output
+✅ **regression**: predict numbers / continuous valued output
 
 2. breast cancer detection:<br>
 ![描述](./img/wuenda03.png)
-**classification**: predict categories / discrete valued output
+✅ **classification**: predict categories / discrete valued output
 
 the examples above only provide one input or feature, in fact, more than one feature also works<br>
 ![描述](./img/wuenda04.png)
 find a boundary line<br>
-we use **SVM(Support Vector Machine)** when we have infinite numbers of features
+✅ we use **SVM(Support Vector Machine)** when we have infinite numbers of features
 
 ## 📌 unsupervised learning
 find the structure or pattern by itself in unlabeled data
 
-**clustering**: group data into different clusters
+✅ **clustering**: group data into different clusters
 
 examples:<br>
 1. google news:<br>
@@ -69,7 +69,7 @@ what means reasonable? --- minimize the modeling error between predicted output 
 we use **cost funtion** to measure the error
 ![描述](./img/wuenda06.png)
 
-the cost function, also called "the square error function", uses the **least squares method**
+✅ the cost function, also called "the square error function", uses the **least squares method**
 
 m is for averaging, making the function independent of the sample size;<br>
 2 is to ensure that the gradient grad after differentiation has no extra coefficients, which cancel out of the square 2
@@ -78,4 +78,13 @@ to better visualize the function, let's simplify it first:
 ![描述](./img/wuenda07.png)
 ![描述](./img/wuenda08.png)
 
+if we have two parameters, the picture would look like this :
+![描述](./img/wuenda09.png)
+in three-dimensional space, we can still find the lowest point
+![描述](./img/wuenda10.png)
+
+to automatically find the parameters that minimize the cost function J, we introduce gradient decent
+
+## 📌 gradient decent
+✅ **gradient decent** is used to find the parameters that minimize the cost function J
 
