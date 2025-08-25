@@ -107,6 +107,7 @@ the derivative term will be smaller and smaller
 
 2. α is learning rate, it controls how big a step we take<br>
 ![描述](./img/wuenda14.png)
+you can try 0.001, 0.01, 0.1, 1...
 
 3. if you don't update simultaneous, say you update θo first, then when you update θ1, now θo in J(θo, θ1) will be the updated θo, and this is incorrect
 4. what if you are already on the minimum point at first?
@@ -136,7 +137,8 @@ review of linear algebra:
 
 # Linear Regression with Multiple Variables
 ## 📌 model
-![描述](./img/wuenda24.png)
+![描述]
+l(./img/wuenda24.png)
 ![描述](./img/wuenda25.png)
 
 ## 📌 cost function and gradient decent
@@ -158,4 +160,25 @@ a simple way to do this is just dividing by its maximum value:
 
 2. ✅ **standardization**
 ![描述](./img/wuenda29.png)
+
+## 📌 polynomial regression 
+✅ as for polynomial regression, we can turn it to linear regression as below:
+![描述](./img/wuenda32.png)
+
+## 📌 normal equation
+another way to find the potimal parameters, in some case better than gradient decent
+![描述](./img/wuenda33.png)
+all you need to do is set the differentiation as 0(same as finding the maximum/minimum in maths)
+
+![描述](./img/wuenda34.png)
+![描述](./img/wuenda35.png)
+
+if the matrix is non-invertible, normal equation can't be used
+
+normal equation is only applicable to linear models, not for other models such as logistic regression models
+
+# Logistic Regression
+## 📌 classification
+
+
 
