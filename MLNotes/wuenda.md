@@ -1,4 +1,4 @@
-- [Content](#content)
+# Content
 - [Introduction](#introduction)
   - [📌 supervised learning](#-supervised-learning)
   - [📌 unsupervised learning](#-unsupervised-learning)
