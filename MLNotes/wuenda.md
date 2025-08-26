@@ -14,7 +14,10 @@
   - [📌 polynomial regression](#-polynomial-regression)
   - [📌 normal equation](#-normal-equation)
 - [Logistic Regression](#logistic-regression)
-  - [📌 classification](#-classification)
+  - [📌 hypothesis function](#-hypothesis-function)
+  - [📌 decision boundary](#-decision-boundary)
+  - [📌 cost function](#-cost-function)
+  - [📌 multiclass classification](#-multiclass-classification)
 
 # Introduction
 machine learning algorithms:<br>
@@ -155,8 +158,7 @@ review of linear algebra:
 
 # Linear Regression with Multiple Variables
 ## 📌 model
-![描述]
-l(./img/wuenda24.png)
+![描述](./img/wuenda24.png)
 ![描述](./img/wuenda25.png)
 
 ## 📌 cost function and gradient decent
@@ -179,12 +181,12 @@ a simple way to do this is just dividing by its maximum value:
 2. ✅ **standardization**
 ![描述](./img/wuenda29.png)
 
-## 📌 polynomial regression 
-✅ as for polynomial regression, we can turn it to linear regression as below:
+## 📌 polynomial regression
+as for polynomial regression, we can turn it to linear regression as below:
 ![描述](./img/wuenda32.png)
 
 ## 📌 normal equation
-another way to find the potimal parameters, in some case better than gradient decent
+✅ **normal equation** is another way to find the potimal parameters, in some case better than gradient decent
 ![描述](./img/wuenda33.png)
 all you need to do is set the differentiation as 0(same as finding the maximum/minimum in maths)
 
@@ -196,7 +198,67 @@ if the matrix is non-invertible, normal equation can't be used
 normal equation is only applicable to linear models, not for other models such as logistic regression models
 
 # Logistic Regression
-## 📌 classification
+logistic regression is **classification** problem
+let's start with the binary classification problem(2 classes)
 
+## 📌 hypothesis function
+we use the **sigmoid function**<br>
+positive numbers -> 1 and negative numbers -> 0
+![描述](./img/wuenda36.png)
 
+we can adjust the parameters according to the actual problem<br>
+by adding w, horizontal stretching or compression can be achieved
+![描述](./img/wuenda37.png)
 
+then we can add the bias b
+![描述](./img/wuenda38.png)
+it can be seen that logistic regression is to input the result of linear regression into the sigmoid function, and map it between 0 and 1
+
+✅ if we represent it with a variable matrix and a parameter matrix, **general hypothesis function of logistic regression** is achieved
+![描述](./img/wuenda39.png)
+
+how to understand the output of the hypothesis function?
+![描述](./img/wuenda40.png)
+
+in python, we can achieve this function in this way:
+
+```python
+import numpy as np 
+def sigmoid(z): 
+ return 1 / (1 + np.exp(-z))
+```
+
+## 📌 decision boundary
+![描述](./img/wuenda41.png)
+the decision boundary can be a straight line
+![描述](./img/wuenda42.png)
+it can also be a curve(when there's higher-order term)
+![描述](./img/wuenda43.png)
+
+## 📌 cost function 
+![描述](./img/wuenda44.png)
+
+for linear regression models, the cost function we define is the square error function<br>
+theoretically speaking, we can follow this definition, but the hypothesis function of logistic regression is very complex, so the cost function we obtained wiil be a **non-convex function**<br>
+this means that our cost function has many local minimum, which will affect our using gradient descent algorithm to search for the global minimum
+![描述](./img/wuenda45.png)
+
+so, we change the cost function
+![描述](./img/wuenda46.png)
+![描述](./img/wuenda47.png)
+
+this cost function can be derived from the principle of **maximum likelihood estimation**
+
+so let's use gradient decent to see the minimum of cost function
+![描述](./img/wuenda48.png)
+pay attention that the h(x) here is the sigmoid function<br>
+after calculating, we find that `the result is exactly the same as linear regression`!
+
+## 📌 multiclass classification
+also called one-vs-all<br>
+✅ turn multiclass into two classes!
+![描述](./img/wuenda49.png)
+
+to visualize it, here's an example:
+![描述](./img/wuenda50.png)
+![描述](./img/wuenda51.png)
