@@ -1,3 +1,21 @@
+- [Content](#content)
+- [Introduction](#introduction)
+  - [📌 supervised learning](#-supervised-learning)
+  - [📌 unsupervised learning](#-unsupervised-learning)
+- [Linear Regression with One Variable](#linear-regression-with-one-variable)
+  - [📌 model](#-model)
+  - [📌 cost function](#-cost-function)
+  - [📌 gradient decent](#-gradient-decent)
+- [Linear Algebra](#linear-algebra)
+- [Linear Regression with Multiple Variables](#linear-regression-with-multiple-variables)
+  - [📌 model](#-model-1)
+  - [📌 cost function and gradient decent](#-cost-function-and-gradient-decent)
+  - [📌 feature scaling](#-feature-scaling)
+  - [📌 polynomial regression](#-polynomial-regression)
+  - [📌 normal equation](#-normal-equation)
+- [Logistic Regression](#logistic-regression)
+  - [📌 classification](#-classification)
+
 # Introduction
 machine learning algorithms:<br>
 supervised learning <-> unsupervised learning
