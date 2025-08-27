@@ -4,7 +4,7 @@
   - [📌 unsupervised learning](#-unsupervised-learning)
 - [Linear Regression with One Variable](#linear-regression-with-one-variable)
   - [📌 model](#-model)
-  - [📌 cost function](#-cost-function)
+  - [📌 cost function for Linear Regression with One Variable](#-cost-function-for-linear-regression-with-one-variable)
   - [📌 gradient decent](#-gradient-decent)
 - [Linear Algebra](#linear-algebra)
 - [Linear Regression with Multiple Variables](#linear-regression-with-multiple-variables)
@@ -16,12 +16,12 @@
 - [Logistic Regression](#logistic-regression)
   - [📌 hypothesis function](#-hypothesis-function)
   - [📌 decision boundary](#-decision-boundary)
-  - [📌 cost function](#-cost-function)
+  - [📌 cost function for Logistic Regression](#-cost-function-for-logistic-regression)
   - [📌 advanced optimization](#-advanced-optimization)
   - [📌 multiclass classification](#-multiclass-classification)
 - [Regularization](#regularization)
   - [📌 the problem of overfitting](#-the-problem-of-overfitting)
-  - [📌 cost function](#-cost-function)
+  - [📌 cost function for Regularization](#-cost-function-for-regularization)
 
 # Introduction
 machine learning algorithms:<br>
@@ -86,7 +86,7 @@ h: function of the model(f(x))
 so the model is like below:
 ![描述](./img/wuenda05.png)
 
-## 📌 cost function 
+## 📌 cost function for Linear Regression with One Variable
 after setting up our model, we need to choose the reasonable parameters: θo and θ1
 
 what means reasonable? --- minimize the modeling error between predicted output and real output
@@ -239,7 +239,7 @@ the decision boundary(决策边界) can be a straight line
 it can also be a curve(when there's higher-order term)
 ![描述](./img/wuenda43.png)
 
-## 📌 cost function 
+## 📌 cost function for Logistic Regression
 ![描述](./img/wuenda44.png)
 
 for linear regression models, the cost function we define is the square error function<br>
@@ -280,4 +280,4 @@ it can be seen that if the power(次幂) of x is too high, it may lead to overfi
 how to solve this problem?
 ![描述](./img/wuenda53.png)
 
-## 📌 cost function
+## 📌 cost function for Regularization
