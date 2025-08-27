@@ -17,7 +17,10 @@
   - [📌 hypothesis function](#-hypothesis-function)
   - [📌 decision boundary](#-decision-boundary)
   - [📌 cost function](#-cost-function)
+  - [📌 advanced optimization](#-advanced-optimization)
   - [📌 multiclass classification](#-multiclass-classification)
+- [Regularization](#regularization)
+  - [📌 the problem of overfitting](#-the-problem-of-overfitting)
 
 # Introduction
 machine learning algorithms:<br>
@@ -254,6 +257,10 @@ so let's use gradient decent to see the minimum of cost function
 pay attention that the h(x) here is the sigmoid function<br>
 after calculating, we find that `the result is exactly the same as linear regression`!
 
+## 📌 advanced optimization
+just for knowing
+![描述](./img/wuenda51.png)
+
 ## 📌 multiclass classification
 also called one-vs-all<br>
 ✅ turn multiclass into two classes!
@@ -261,4 +268,8 @@ also called one-vs-all<br>
 
 to visualize it, here's an example:
 ![描述](./img/wuenda50.png)
-![描述](./img/wuenda51.png)
+
+# Regularization
+regularization can reduce the problem of overfitting
+## 📌 the problem of overfitting
+![描述](./img/wuenda52.png)
