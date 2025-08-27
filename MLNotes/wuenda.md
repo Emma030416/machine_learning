@@ -281,3 +281,4 @@ how to solve this problem?
 ![描述](./img/wuenda53.png)
 
 ## 📌 cost function for Regularization
+
