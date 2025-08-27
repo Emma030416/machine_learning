@@ -21,6 +21,7 @@
   - [📌 multiclass classification](#-multiclass-classification)
 - [Regularization](#regularization)
   - [📌 the problem of overfitting](#-the-problem-of-overfitting)
+  - [📌 cost function](#-cost-function)
 
 # Introduction
 machine learning algorithms:<br>
@@ -90,10 +91,10 @@ after setting up our model, we need to choose the reasonable parameters: θo and
 
 what means reasonable? --- minimize the modeling error between predicted output and real output
 
-we use **cost funtion** to measure the error
+we use **cost funtion**(代价函数) to measure the error
 ![描述](./img/wuenda06.png)
 
-✅ the cost function, also called "the square error function", uses the **least squares method**
+✅ the cost function, also called "the square error function"(均方误差函数), uses the **least squares method**(最小二乘法)
 
 m is for averaging, making the function independent of the sample size;<br>
 2 is to ensure that the gradient grad after differentiation has no extra coefficients, which cancel out of the square 2
@@ -110,12 +111,12 @@ in three-dimensional space, we can still find the lowest point
 to automatically find the parameters that minimize the cost function J, we introduce gradient decent
 
 ## 📌 gradient decent
-✅ **gradient decent** is used to minimize some arbitrary funciton
+✅ **gradient decent**(梯度下降) is used to minimize some arbitrary funciton
 
 imagine you are on a hill, to go down the hill as quickly as possible, you need to look around and find the best direction then take a step.<br>
 Then you keep going, from this new point you are now standing at, look around and find the best direction then take another step...
 
-starting with different points of the hill, you'll end up with different local minimum / `local optimum`
+starting with different points of the hill, you'll end up with different local minimum / `local optimum`(局部最小值/局部最优解)
 
 here is the visualized picture:
 ![描述](./img/wuenda11.png)
@@ -124,7 +125,7 @@ here is the algorithm:
 ![描述](./img/wuenda12.png)
 
 something you need to know in the algorithm:<br>
-1. derivative term
+1. derivative term(导数项)
 ![描述](./img/wuenda13.png)
 ![描述](./img/wuenda16.png)
 the derivative term will be smaller and smaller
@@ -133,7 +134,7 @@ the derivative term will be smaller and smaller
 ![描述](./img/wuenda14.png)
 you can try 0.001, 0.01, 0.1, 1...
 
-3. if you don't update simultaneous, say you update θo first, then when you update θ1, now θo in J(θo, θ1) will be the updated θo, and this is incorrect
+3. if you don't update simultaneous(同步更新), say you update θo first, then when you update θ1, now θo in J(θo, θ1) will be the updated θo, and this is incorrect
 4. what if you are already on the minimum point at first?
 ![描述](./img/wuenda15.png)
 
@@ -142,10 +143,10 @@ now let's see how to use grdient decent to minimize the cost function J:
 ![描述](./img/wuenda18.png)
 
 don't worry about getting the local optimum, cause the cost function is always a bow shape<br>
-there is only a single optimum, that is the global optimum
+there is only a single optimum, that is the global optimum(全局最优解)
 ![描述](./img/wuenda09.png)
 
-as for this picture we see before, the right one is a Contour map, every point on the same circular line has the same cost<br>
+as for this picture we see before, the right one is a Contour map(等值线图), every point on the same circular line has the same cost<br>
 as the point goes closer and closer to the center point(minimum cost), the cost becomes smaller, and the line on the left picture better fit the data
 ![描述](./img/wuenda10.png)
 
@@ -169,7 +170,7 @@ review of linear algebra:
 ![描述](./img/wuenda27.png)
 
 ## 📌 feature scaling
-if two parameters are not on the same scale, it will take a long time to find its way to the global minimum
+if two parameters are not on the same scale(量级), it will take a long time to find its way to the global minimum
 ![描述](./img/wuenda30.png)
 
 here are two solutions:
@@ -185,24 +186,24 @@ a simple way to do this is just dividing by its maximum value:
 ![描述](./img/wuenda29.png)
 
 ## 📌 polynomial regression
-as for polynomial regression, we can turn it to linear regression as below:
+as for polynomial regression(多项式回归), we can turn it to linear regression as below:
 ![描述](./img/wuenda32.png)
 
 ## 📌 normal equation
-✅ **normal equation** is another way to find the potimal parameters, in some case better than gradient decent
+✅ **normal equation**(正规方程) is another way to find the potimal parameters, in some case better than gradient decent
 ![描述](./img/wuenda33.png)
-all you need to do is set the differentiation as 0(same as finding the maximum/minimum in maths)
+all you need to do is set the differentiation(导数) as 0(same as finding the maximum/minimum in maths)
 
 ![描述](./img/wuenda34.png)
 ![描述](./img/wuenda35.png)
 
-if the matrix is non-invertible, normal equation can't be used
+if the matrix is non-invertible(不可逆), normal equation can't be used
 
 normal equation is only applicable to linear models, not for other models such as logistic regression models
 
 # Logistic Regression
 logistic regression is **classification** problem
-let's start with the binary classification problem(2 classes)
+let's start with the binary classification problem(二分类问题)
 
 ## 📌 hypothesis function
 we use the **sigmoid function**<br>
@@ -210,14 +211,14 @@ positive numbers -> 1 and negative numbers -> 0
 ![描述](./img/wuenda36.png)
 
 we can adjust the parameters according to the actual problem<br>
-by adding w, horizontal stretching or compression can be achieved
+by adding w, horizontal stretching or compression(横向拉伸/压缩) can be achieved
 ![描述](./img/wuenda37.png)
 
 then we can add the bias b
 ![描述](./img/wuenda38.png)
 it can be seen that logistic regression is to input the result of linear regression into the sigmoid function, and map it between 0 and 1
 
-✅ if we represent it with a variable matrix and a parameter matrix, **general hypothesis function of logistic regression** is achieved
+✅ if we represent it with a variable matrix and a parameter matrix, **general hypothesis function of logistic regression**(逻辑回归的通用假设函数) is achieved
 ![描述](./img/wuenda39.png)
 
 how to understand the output of the hypothesis function?
@@ -233,7 +234,7 @@ def sigmoid(z):
 
 ## 📌 decision boundary
 ![描述](./img/wuenda41.png)
-the decision boundary can be a straight line
+the decision boundary(决策边界) can be a straight line
 ![描述](./img/wuenda42.png)
 it can also be a curve(when there's higher-order term)
 ![描述](./img/wuenda43.png)
@@ -242,7 +243,7 @@ it can also be a curve(when there's higher-order term)
 ![描述](./img/wuenda44.png)
 
 for linear regression models, the cost function we define is the square error function<br>
-theoretically speaking, we can follow this definition, but the hypothesis function of logistic regression is very complex, so the cost function we obtained wiil be a **non-convex function**<br>
+theoretically speaking, we can follow this definition, but the hypothesis function of logistic regression is very complex, so the cost function we obtained wiil be a **non-convex function**(非凸函数)<br>
 this means that our cost function has many local minimum, which will affect our using gradient descent algorithm to search for the global minimum
 ![描述](./img/wuenda45.png)
 
@@ -250,7 +251,7 @@ so, we change the cost function
 ![描述](./img/wuenda46.png)
 ![描述](./img/wuenda47.png)
 
-this cost function can be derived from the principle of **maximum likelihood estimation**
+this cost function can be derived from the principle of **maximum likelihood estimation**(最大似然估计法)
 
 so let's use gradient decent to see the minimum of cost function
 ![描述](./img/wuenda48.png)
@@ -270,6 +271,13 @@ to visualize it, here's an example:
 ![描述](./img/wuenda50.png)
 
 # Regularization
-regularization can reduce the problem of overfitting
+regularization(正则化) can reduce the problem of overfitting
 ## 📌 the problem of overfitting
 ![描述](./img/wuenda52.png)
+![描述](./img/wuenda53.png)
+it can be seen that if the power(次幂) of x is too high, it may lead to overfitting
+
+how to solve this problem?
+![描述](./img/wuenda53.png)
+
+## 📌 cost function
