@@ -22,6 +22,8 @@
 - [Regularization](#regularization)
   - [📌 the problem of overfitting](#-the-problem-of-overfitting)
   - [📌 cost function for Regularization](#-cost-function-for-regularization)
+  - [📌 regularized Linear Regression](#-regularized-linear-regression)
+  - [📌 regularized Logistic Regression](#-regularized-logistic-regression)
 
 # Introduction
 machine learning algorithms:<br>
@@ -278,7 +280,30 @@ regularization(正则化) can reduce the problem of overfitting
 it can be seen that if the power(次幂) of x is too high, it may lead to overfitting
 
 how to solve this problem?
-![描述](./img/wuenda53.png)
+![描述](./img/wuenda54.png)
 
 ## 📌 cost function for Regularization
+From the previous examples, we can see that if the power(次幂) of x is too high, it may lead to overfitting
 
+so if the coefficients of these higher-order terms(高项式) approach 0, we can fit them very well
+
+we can add prenalize(惩罚)
+![描述](./img/wuenda55.png)
+
+the value of regularization parameter is important
+![描述](./img/wuenda56.png)
+
+## 📌 regularized Linear Regression
+gradient decent:
+![描述](./img/wuenda57.png)
+
+normal equation:
+![描述](./img/wuenda58.png)
+
+## 📌 regularized Logistic Regression
+gradient decent:
+![描述](./img/wuenda59.png)
+![描述](./img/wuenda60.png)
+
+advanced optimization:
+![描述](./img/wuenda61.png)
