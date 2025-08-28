@@ -4,7 +4,7 @@
   - [📌 unsupervised learning](#-unsupervised-learning)
 - [Linear Regression with One Variable](#linear-regression-with-one-variable)
   - [📌 model](#-model)
-  - [📌 cost function for Linear Regression with One Variable](#-cost-function-for-linear-regression-with-one-variable)
+  - [📌 cost function](#-cost-function)
   - [📌 gradient decent](#-gradient-decent)
 - [Linear Algebra](#linear-algebra)
 - [Linear Regression with Multiple Variables](#linear-regression-with-multiple-variables)
@@ -16,14 +16,16 @@
 - [Logistic Regression](#logistic-regression)
   - [📌 hypothesis function](#-hypothesis-function)
   - [📌 decision boundary](#-decision-boundary)
-  - [📌 cost function for Logistic Regression](#-cost-function-for-logistic-regression)
+  - [📌 cost function](#-cost-function-1)
   - [📌 advanced optimization](#-advanced-optimization)
   - [📌 multiclass classification](#-multiclass-classification)
 - [Regularization](#regularization)
   - [📌 the problem of overfitting](#-the-problem-of-overfitting)
-  - [📌 cost function for Regularization](#-cost-function-for-regularization)
-  - [📌 regularized Linear Regression](#-regularized-linear-regression)
+  - [📌 cost function](#-cost-function-2)
+  - [📌 regularized Linear Regression](#-regularized-linear-regression)`
   - [📌 regularized Logistic Regression](#-regularized-logistic-regression)
+- [Advice for Applying Machine Learning](#advice-for-applying-machine-learning)
+  - [📌 evaluating a hypothesis](#-evaluating-a-hypothesis)
 
 # Introduction
 machine learning algorithms:<br>
@@ -88,7 +90,7 @@ h: function of the model(f(x))
 so the model is like below:
 ![描述](./img/wuenda05.png)
 
-## 📌 cost function for Linear Regression with One Variable
+## 📌 cost function
 after setting up our model, we need to choose the reasonable parameters: θo and θ1
 
 what means reasonable? --- minimize the modeling error between predicted output and real output
@@ -241,7 +243,7 @@ the decision boundary(决策边界) can be a straight line
 it can also be a curve(when there's higher-order term)
 ![描述](./img/wuenda43.png)
 
-## 📌 cost function for Logistic Regression
+## 📌 cost function
 ![描述](./img/wuenda44.png)
 
 for linear regression models, the cost function we define is the square error function<br>
@@ -282,7 +284,7 @@ it can be seen that if the power(次幂) of x is too high, it may lead to overfi
 how to solve this problem?
 ![描述](./img/wuenda54.png)
 
-## 📌 cost function for Regularization
+## 📌 cost function 
 From the previous examples, we can see that if the power(次幂) of x is too high, it may lead to overfitting
 
 so if the coefficients of these higher-order terms(高项式) approach 0, we can fit them very well
@@ -292,6 +294,13 @@ we can add prenalize(惩罚)
 
 the value of regularization parameter is important
 ![描述](./img/wuenda56.png)
+
+>简单来说，h(x)里x的高次项会让模型很复杂，可能导致过拟合，<br>
+>而解决这一问题的办法就是缩小高次项前的系数。<br>
+>我们在]中引入惩罚，加上所有系数平方和*λ，<br>
+>现在要让代价函数最小，惩罚项就也要小，<br>
+>通过控制λ的值，所有系数都会相应的减小。<br>
+>这个方法被称为正则化。
 
 ## 📌 regularized Linear Regression
 gradient decent:
@@ -307,3 +316,59 @@ gradient decent:
 
 advanced optimization:
 ![描述](./img/wuenda61.png)
+
+# Advice for Applying Machine Learning
+![描述](./img/wuenda62.png)
+how to determine which method to use will be introduced later, to be specific, we'll use a measure called **machine learning diagnostic**
+![描述](./img/wuenda63.png)
+
+## 📌 evaluating a hypothesis
+
+```python
+from sklearn.metrics import...
+```
+import的就是下面具体的评估指标
+
+评估指标：
++ `决定系数`（R方）：越接近1越好
+```python
+ print("R²:", r2_score(y_test, y_pred))
+```
+
++ `均方根误差`：越小越好
+```python
+print("RMSE:", mean_squared_error(y_test, y_pred, squared=False)) # 不平方
+```
+
++  `准确率`（accuracy）
+accuracy = 正确预测的样本数 / 总样本数 
+
+```python
+ print("accuracy:", accuracy_score(y_test, y_pred))
+```
+
++  `精确率`（precision）
+所有预测为正的样本中，有多少实际为正
+precision = 真正例（TP）/  真正例（TP）+ 假正例（FP）
+ 
++  `召回率`（recall）
+所有实际为正的样本中，模型预测了多少为正
+recall = 真正例（TP）/  真正例（TP）+ 假反例（FN）
+
++ `F1 分数`（f1-score）
+F1 分数是精确率和召回率的调和平均数（积在和上飞），F1 分数越高，模型的性能越好。
+
+![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/15ab132a6f4c40c0b4ace362de80620b.png)
+
+```python
+print("classification Report:")
+print(classification_report(y_test, y_pred, zero_division=0))
+```
+report 包含 precision、recall、f1-score等
+
+通过这些指标，我们可以看出模型的拟合状态：
+`正常拟合/欠拟合/过拟合`
+
+![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/6d74833eca0f4c4e8fb29ef13026bd63.png)
+
+泛化：模型在新数据（测试集）上的表现能力
