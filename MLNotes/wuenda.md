@@ -323,6 +323,41 @@ how to determine which method to use will be introduced later, to be specific, w
 ![描述](./img/wuenda63.png)
 
 ## 📌 evaluating a hypothesis
+first split our dataset:
+![描述](./img/wuenda64.png)
+
+evaluate a hypothesis:<br>
+in linear regression
+![描述](./img/wuenda65.png)
+in logistic regression
+![描述](./img/wuenda66.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ```python
 from sklearn.metrics import...
