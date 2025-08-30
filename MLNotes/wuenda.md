@@ -1,4 +1,4 @@
-# Content
+<img width="2715" height="1108" alt="image" src="https://github.com/user-attachments/assets/b00608bb-c976-4cd6-87ce-8c7b1a3e8c35" /># Content
 - [Introduction](#introduction)
   - [📌 supervised learning](#-supervised-learning)
   - [📌 unsupervised learning](#-unsupervised-learning)
@@ -275,7 +275,7 @@ to visualize it, here's an example:
 ![描述](./img/wuenda50.png)
 
 # Regularization
-regularization(正则化) can reduce the problem of overfitting
+✅ **regularization**(正则化) can reduce the problem of overfitting
 ## 📌 the problem of overfitting
 ![描述](./img/wuenda52.png)
 ![描述](./img/wuenda53.png)
@@ -289,7 +289,7 @@ From the previous examples, we can see that if the power(次幂) of x is too hig
 
 so if the coefficients of these higher-order terms(高项式) approach 0, we can fit them very well
 
-we can add prenalize(惩罚)
+we can add **prenalize**(惩罚)
 ![描述](./img/wuenda55.png)
 
 the value of regularization parameter is important
@@ -319,6 +319,7 @@ advanced optimization:
 
 # Advice for Applying Machine Learning
 ![描述](./img/wuenda62.png)
+
 how to determine which method to use will be introduced later, to be specific, we'll use a measure called **machine learning diagnostic**
 ![描述](./img/wuenda63.png)
 
@@ -332,12 +333,33 @@ in linear regression
 in logistic regression
 ![描述](./img/wuenda66.png)
 
+## 📌 Model Selection and Train_Validation_Test Sets 
+![描述](./img/wuenda67.png)
 
+what's the problem if there are only train set and test set?
 
+test set is used to evaluate the generalization ability of the model, and its data should be completely confidential(保密) to the model<br>
+if we use test set to select parameter d first, **the data of the test set will be exposed**<br>
+the selected d is the one that minimizes the cost function of the test set, which means **the model is better to fit the test set**<br>
+thus the generalization error will be underestimated<br>
 
+we need to introduce a new set to choose the parameter d, so that we can ensure that the data of the test set is not exposed<br>
+the new set is call **cross-validation set(CV)**
+![描述](./img/wuenda68.png)
 
+the right way to choose the best model:
+![描述](./img/wuenda69.png)
 
+✅ to summarize, the method for model selection is:
 
+1. train 10 models using the training set
+2. calculate the **cross-validation error** (the value of the cost function) for the **cross-validation set** using 10 models respectively
+3. select the model with the smallest cost function value
+4. use the model selected in step 3 to calculate the **generalization error** (the value of the cost function) for the **test set**
+
+## 📌 Diagnosing Bias vs. Variance
+![描述](./img/wuenda70.png)
+![描述](./img/wuenda71.png)
 
 
 
